@@ -7,6 +7,15 @@ if (typeof process !== 'undefined') {
   global.Worker = function() { return { postMessage: function() { } } }
 }
 
+function kebabToCamel(attribute) {
+  if (attribute.includes('-')) {
+      return attribute.split('-').map((word, index) => index !== 0 ? word.charAt(0).  toUpperCase() + word.slice(1) : word
+      ).join('')
+  } else {
+      return attribute
+  }
+}
+
 export default class BaseElement extends HTMLElement {
   constructor() {
     super()
@@ -31,7 +40,7 @@ export default class BaseElement extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
-      const fun = `${name}Changed`
+      const fun = `${kebabToCamel(name)}Changed`
       if (this[fun]) {
         this[fun](newValue)
       }
