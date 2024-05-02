@@ -9,7 +9,7 @@ if (typeof process !== 'undefined') {
 
 function kebabToCamel(attribute) {
   if (attribute.includes('-')) {
-      return attribute.split('-').map((word, index) => index !== 0 ? word.charAt(0).  toUpperCase() + word.slice(1) : word
+      return attribute.split('-').map((word, index) => index !== 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word
       ).join('')
   } else {
       return attribute
