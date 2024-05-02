@@ -4,9 +4,10 @@
   "description": "Enhance base element class",
   "main": "index.mjs",
   "scripts": {
-    "test": "run-s test:setup test:ci",
+    "test": "run-s test:unit test:setup test:ci",
     "test:setup": "npx playwright install-deps",
     "test:ci": "web-test-runner \"test/*-test.html\" --node-resolve --playwright --browsers chromium firefox webkit",
+    "test:unit": "tape 'test/unit/*-test.mjs' | tap-arc",
     "watch": "web-test-runner \"test/*-test.html\" --node-resolve --watch --playwright --browsers chromium firefox webkit"
   },
   "author": "@dam",
@@ -17,6 +18,8 @@
     "@web/test-runner": "^0.17.0",
     "@web/test-runner-playwright": "^0.10.1",
     "npm-run-all": "^4.1.5",
-    "playwright": "^1.36.2"
+    "playwright": "^1.36.2",
+    "tap-arc": "^1.2.2",
+    "tape": "^5.7.5"
   }
 }
