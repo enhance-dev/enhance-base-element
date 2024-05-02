@@ -7,7 +7,7 @@ if (typeof process !== 'undefined') {
   global.Worker = function() { return { postMessage: function() { } } }
 }
 
-function kebabToCamel(attribute) {
+export function kebabToCamel(attribute) {
   if (attribute.includes('-')) {
       return attribute.split('-').map((word, index) => index !== 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word
       ).join('')
