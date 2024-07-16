@@ -57,7 +57,7 @@ class MyHeader extends BaseElement {
     header.innerHTML = value
   }
 }
-customElements.define('my-component', MyComponent)
+customElements.define('my-component', MyHeader)
 ```
 
 
